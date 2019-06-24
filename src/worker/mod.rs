@@ -1,9 +1,10 @@
-mod threaded;
+use std::prelude::v1::*;
+//mod threaded;
 mod immediate;
 
-#[cfg(not(any(target_arch = "asmjs", target_arch = "wasm32")))]
-pub use self::threaded::ThreadedWorker as PlatformWorker;
-#[cfg(any(target_arch = "asmjs", target_arch = "wasm32"))]
+//#[cfg(not(any(target_arch = "asmjs", target_arch = "wasm32")))]
+//pub use self::threaded::ThreadedWorker as PlatformWorker;
+//#[cfg(any(target_arch = "asmjs", target_arch = "wasm32"))]
 pub use self::immediate::ImmediateWorker as PlatformWorker;
 
 use error::Result;

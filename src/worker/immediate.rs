@@ -1,3 +1,4 @@
+use std::prelude::v1::*;
 use decoder::MAX_COMPONENTS;
 use error::Result;
 use idct::dequantize_and_idct_block;

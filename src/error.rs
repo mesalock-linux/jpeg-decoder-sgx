@@ -1,8 +1,9 @@
-use std::any::Any;
+use std::prelude::v1::*;
+//use std::any::Any;
 use std::error::Error as StdError;
 use std::fmt;
 use std::io::Error as IoError;
-use std::sync::mpsc::{RecvError, SendError};
+//use std::sync::mpsc::{RecvError, SendError};
 
 pub type Result<T> = ::std::result::Result<T, Error>;
 
@@ -56,6 +57,7 @@ impl fmt::Display for Error {
 }
 
 impl StdError for Error {
+    #[allow(deprecated)]
     fn description(&self) -> &str {
         match *self {
             Error::Format(_)         => "invalid JPEG format",
@@ -80,14 +82,14 @@ impl From<IoError> for Error {
     }
 }
 
-impl From<RecvError> for Error {
-    fn from(err: RecvError) -> Error {
-        Error::Internal(Box::new(err))
-    }
-}
+//impl From<RecvError> for Error {
+//    fn from(err: RecvError) -> Error {
+//        Error::Internal(Box::new(err))
+//    }
+//}
 
-impl<T: Any + Send> From<SendError<T>> for Error {
-    fn from(err: SendError<T>) -> Error {
-        Error::Internal(Box::new(err))
-    }
-}
+//impl<T: Any + Send> From<SendError<T>> for Error {
+//    fn from(err: SendError<T>) -> Error {
+//        Error::Internal(Box::new(err))
+//    }
+//}

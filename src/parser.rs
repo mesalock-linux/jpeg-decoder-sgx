@@ -1,3 +1,4 @@
+use std::prelude::v1::*;
 use byteorder::{BigEndian, ReadBytesExt};
 use error::{Error, Result};
 use huffman::{HuffmanTable, HuffmanTableClass};

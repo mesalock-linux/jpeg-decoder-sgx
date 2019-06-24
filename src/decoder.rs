@@ -1,3 +1,4 @@
+use std::prelude::v1::*;
 use byteorder::ReadBytesExt;
 use error::{Error, Result, UnsupportedFeature};
 use huffman::{fill_default_mjpeg_tables, HuffmanDecoder, HuffmanTable};
