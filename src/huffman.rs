@@ -1,3 +1,4 @@
+use std::prelude::v1::*;
 use byteorder::ReadBytesExt;
 use error::{Error, Result};
 use marker::Marker;

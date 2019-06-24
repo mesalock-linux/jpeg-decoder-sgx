@@ -1,6 +1,7 @@
 use std::error::Error as StdError;
 use std::fmt;
 use std::io::Error as IoError;
+use std::prelude::v1::*;
 
 pub type Result<T> = ::std::result::Result<T, Error>;
 
@@ -54,6 +55,7 @@ impl fmt::Display for Error {
 }
 
 impl StdError for Error {
+    #[allow(deprecated)]
     fn description(&self) -> &str {
         match *self {
             Error::Format(_)         => "invalid JPEG format",
